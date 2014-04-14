@@ -45,13 +45,7 @@ public class MessageReceivingService extends Service{
             savedValues = getSharedPreferences(preferences, Context.MODE_MULTI_PROCESS);
         }
         gcm = GoogleCloudMessaging.getInstance(getBaseContext());
-        SharedPreferences savedValues = PreferenceManager.getDefaultSharedPreferences(this);
-        if(savedValues.getBoolean(getString(R.string.first_launch), true)){
-            register();
-            SharedPreferences.Editor editor = savedValues.edit();
-            editor.putBoolean(getString(R.string.first_launch), false);
-            editor.commit();
-        }
+        register();
         // Let AndroidMobilePushApp know we have just initialized and there may be stored messages
         sendToApp(new Bundle(), this);
     }

@@ -25,7 +25,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.TextView;;
 // Requires Android 2.2 or higher, Google Play Services on the target device, and an active google account on the device.
 
 public class AndroidMobilePushApp extends Activity {
@@ -41,7 +41,6 @@ public class AndroidMobilePushApp extends Activity {
         numOfMissedMessages = getString(R.string.num_of_missed_messages);
         setContentView(R.layout.activity_main);
         tView = (TextView) findViewById(R.id.tViewId);
-        tView.setMovementMethod(new ScrollingMovementMethod());
         startService(new Intent(this, MessageReceivingService.class));
     }
 
